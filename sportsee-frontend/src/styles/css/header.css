@@ -1,0 +1,56 @@
+.horizontal-navbar {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  color: white;
+  padding: 18px 28px;
+  width: 100%;
+  background-color: #020203;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+  .horizontal-navbar .logo-sportsee {
+    margin-right: 10em; }
+  .horizontal-navbar nav {
+    width: 100%; }
+    .horizontal-navbar nav ul {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      justify-content: space-between;
+      font-weight: 500; }
+      .horizontal-navbar nav ul li {
+        margin: 0 10px;
+        font-size: 24px; }
+
+.vertical-navbar {
+  position: fixed;
+  top: 101px;
+  height: calc(100vh - 101px);
+  margin: 0;
+  width: fit-content;
+  margin-top: -1px;
+  background-color: #020203;
+  padding: 28px 28px;
+  padding-top: 15vh;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+  .vertical-navbar nav ul {
+    display: grid;
+    gap: 20px; }
+    .vertical-navbar nav ul li {
+      background-color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+  .vertical-navbar .block-copyright {
+    color: white;
+    font-size: 13px;
+    justify-self: flex-end;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); }
