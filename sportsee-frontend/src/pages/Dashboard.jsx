@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import DashboardActivity from "../components/DashboardActivity";
 import DashboardHeader from "../components/DashboardHeader";
+import DashboardItems from "../components/DashboardItems";
 import DashBoardLineChart from "../components/DashBoardLineChart";
 import DashboardPieChart from "../components/DashboardPieChart";
 import DashboardRadar from "../components/DashboardRadar";
@@ -31,6 +32,7 @@ function Dashboard() {
             todayScore={userMainData.todayScore}
           ></DashboardPieChart>
         </section>
+        <DashboardItems items={userMainData.keyData}></DashboardItems>
       </section>
     </main>
   );

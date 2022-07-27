@@ -9,6 +9,17 @@ import {
 } from "recharts";
 
 function DashboardActivity({ userActivity }) {
+  /* function CustomDate(data) {
+  
+    const { active, payload } = data;
+
+    if (active && payload && payload.length) {
+      return (
+        ""
+      );
+    }
+    return null;
+  } */
   function CustomTooltip(data) {
     // console.log('CustomTooltip -> data', data)
     const { active, payload } = data;
@@ -49,7 +60,7 @@ function DashboardActivity({ userActivity }) {
             barGap={10}
             className="dashboard-activity-barchart"
           >
-            <CartesianGrid vertical={false} strokeDasharray="3" />
+            <CartesianGrid vertical={false} strokeDasharray="3 3" />
             <Tooltip content={<CustomTooltip />}></Tooltip>
             <XAxis
               dataKey="day"
@@ -57,20 +68,35 @@ function DashboardActivity({ userActivity }) {
               dy={15}
               stroke={"#9B9EAC"}
             ></XAxis>
+
             <YAxis
+              yAxisId="kg"
+              dataKey="kilogram"
               orientation="right"
-              tickLine={false}
+              domain={["dataMin -1", "dataMax +2"]}
+              tickCount="3"
+              tickSize="0"
               axisLine={false}
               dx={40}
               stroke={"#9B9EAC"}
             ></YAxis>
+            <YAxis
+              yAxisId="kcal"
+              dataKey="calories"
+              orientation="left"
+              domain={["dataMin -100", "dataMax +100"]}
+              tickLine={false}
+              hide={true}
+            />
             <Bar
+              yAxisId="kg"
               dataKey="kilogram"
               barSize={10}
               fill="#282D30"
               radius={[4, 4, 0, 0]}
             />
             <Bar
+              yAxisId="kcal"
               dataKey="calories"
               barSize={10}
               fill="#E60000"

@@ -3,7 +3,6 @@ import {
   ResponsiveContainer,
   RadialBar,
   PolarAngleAxis,
-  Legend,
 } from "recharts";
 
 function DashboardPieChart({ todayScore }) {
@@ -19,7 +18,8 @@ function DashboardPieChart({ todayScore }) {
           <RadialBarChart
             width="100%"
             height="100%"
-            innerRadius={110}
+            innerRadius={107}
+            outerRadius={92}
             startAngle={90}
             endAngle={450}
             data={percentScore}
@@ -34,7 +34,7 @@ function DashboardPieChart({ todayScore }) {
             <RadialBar
               dataKey="score"
               fill="#FF0000"
-              paddingAngle={10}
+              paddingAngle={20}
               cornerRadius={20}
               className="test"
             ></RadialBar>
