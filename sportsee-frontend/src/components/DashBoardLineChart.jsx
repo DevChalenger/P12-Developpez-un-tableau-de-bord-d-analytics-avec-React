@@ -47,7 +47,7 @@ function DashBoardLineChart({ userAverageSession }) {
             width={300}
             height={300}
             data={userAverageSession.sessions}
-            margin={{ left: 10, right: 10, top: 10, bottom: 5 }}
+            margin={{ left: 5, right: 5, top: 10, bottom: 5 }}
           >
             <Tooltip
               cursor={false}
@@ -60,7 +60,8 @@ function DashBoardLineChart({ userAverageSession }) {
               tickLine={false}
               stroke="#FFFFFF"
               opacity={0.55}
-              dy={5}
+              domain={["dataMin -10", "dataMax +10"]}
+              padding={{ left: 5, right: 5 }}
               tickFormatter={dayFormater}
             ></XAxis>
 

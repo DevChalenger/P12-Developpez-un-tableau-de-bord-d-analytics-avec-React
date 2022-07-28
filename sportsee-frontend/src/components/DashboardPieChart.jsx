@@ -7,7 +7,6 @@ import {
 
 function DashboardPieChart({ todayScore }) {
   const percentScore = [{ score: Math.round(todayScore * 100) }];
-  console.log(percentScore[0].score);
   return (
     <article className="dashboard-pie-chart">
       <header className="dashboard-pie-chart-header">

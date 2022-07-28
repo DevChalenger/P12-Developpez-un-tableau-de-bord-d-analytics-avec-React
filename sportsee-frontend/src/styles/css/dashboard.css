@@ -6,7 +6,7 @@
   margin-left: 111px;
   max-width: calc(100vw - 111px);
   min-height: calc(100vh - 101px);
-  padding: 40px 50px 40px 60px; }
+  padding: 40px 50px; }
   .dashboard-container .dashboard-header {
     margin-bottom: 50px; }
     .dashboard-container .dashboard-header .welcome-title {
@@ -17,143 +17,212 @@
     .dashboard-container .dashboard-header .yesterday-feat {
       font-weight: 500;
       font-size: 18px; }
-  .dashboard-container .dashboard-section .dashboard-activity {
-    min-width: 700px;
-    max-width: 900px;
-    display: inline-block;
-    padding: 24px 30px;
-    background-color: #fbfbfb;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-    border-radius: 5px;
-    margin-bottom: 30px; }
-    .dashboard-container .dashboard-section .dashboard-activity .dashboard-activity-header {
-      font-weight: 500;
-      display: grid;
-      grid-template-columns: 2fr 1fr; }
-      .dashboard-container .dashboard-section .dashboard-activity .dashboard-activity-header .unit-of-measurement {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-        width: 300px; }
-        .dashboard-container .dashboard-section .dashboard-activity .dashboard-activity-header .unit-of-measurement li {
-          color: #74798c;
-          vertical-align: middle; }
-          .dashboard-container .dashboard-section .dashboard-activity .dashboard-activity-header .unit-of-measurement li::before {
-            content: "•";
-            color: black;
-            padding-right: 15px;
-            font-size: 30px;
-            vertical-align: -5px;
-            line-height: 20px; }
-        .dashboard-container .dashboard-section .dashboard-activity .dashboard-activity-header .unit-of-measurement .dashboard-activity-calories::before {
-          color: #ff0101; }
-    .dashboard-container .dashboard-section .dashboard-activity .dashboard-activity-section {
-      width: 100%;
-      height: 200px;
-      margin-top: 40px;
-      color: #9b9eac;
-      font-size: 14px; }
-      .dashboard-container .dashboard-section .dashboard-activity .dashboard-activity-section .custom-tooltip {
-        background-color: #e60000;
-        color: white;
-        padding: 5px;
-        text-align: center;
-        font-size: 11px; }
-  .dashboard-container .dashboard-section .dashboard-section-chart {
+  .dashboard-container .dashboard-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    max-width: 940px; }
-    .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-line-chart {
-      position: relative;
-      width: 30%;
-      min-width: 250px;
-      height: 280px;
-      background-color: red;
-      border-radius: 5px;
-      color: rgba(255, 255, 255, 0.5); }
-      .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-line-chart .dashboard-activity-second-background {
-        position: absolute;
-        right: 0;
-        width: 30%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.1); }
-      .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-line-chart .dashboard-line-chart-header {
-        width: auto;
-        height: auto;
-        margin: 30px 35px;
-        margin-right: 75px;
-        margin-bottom: 10px; }
-        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-line-chart .dashboard-line-chart-header h3 {
-          font-size: 17px;
-          font-weight: 500; }
-      .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-line-chart .dashboard-line-chart-section {
-        width: 100%;
-        height: 180px;
-        padding: 5px 20px; }
-        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-line-chart .dashboard-line-chart-section .custom-tooltip {
-          background-color: white;
-          color: black;
-          font-weight: 500;
-          padding: 5px;
-          text-align: center;
-          font-size: 11px; }
-          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-line-chart .dashboard-line-chart-section .custom-tooltip p {
-            margin: 5px; }
-    .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-radar {
-      width: 30%;
-      min-width: 250px;
-      height: 280px;
-      padding: 5px;
-      background-color: #282d30;
-      font-weight: 500;
-      border-radius: 5px;
-      font-size: 12px; }
-    .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-pie-chart {
-      width: 30%;
-      min-width: 250px;
-      height: 280px;
-      padding: 5px;
-      background-color: #fbfbfb;
-      display: flex;
-      justify-content: center;
+    height: auto; }
+    .dashboard-container .dashboard-section .dashboard-section-chart {
+      display: inline-flex;
       flex-direction: column;
-      align-items: center; }
-      .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-pie-chart .dashboard-pie-chart-header {
-        height: fit-content;
-        align-self: flex-start;
-        margin: 25px 0 0 30px; }
-        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-pie-chart .dashboard-pie-chart-header h3 {
-          font-size: 19px;
-          font-weight: 700;
-          margin: 0; }
-      .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-pie-chart .dashboard-pie-chart-section {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        margin-bottom: 20px; }
-        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-pie-chart .dashboard-pie-chart-section .dashboard-pie-chart-circle {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: 176px;
-          border-radius: 100%;
-          height: 176px;
-          background-color: white;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center; }
-          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-pie-chart .dashboard-pie-chart-section .dashboard-pie-chart-circle h4 {
-            margin: 0;
-            color: #282d30;
-            font-size: 25px; }
-          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-pie-chart .dashboard-pie-chart-section .dashboard-pie-chart-circle p {
+      justify-content: space-between;
+      width: 100%;
+      max-width: 940px;
+      margin-bottom: 30px;
+      margin-right: 25px; }
+      .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity {
+        min-width: 700px;
+        max-width: 900px;
+        display: inline-block;
+        padding: 24px 30px;
+        background-color: #fbfbfb;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+        border-radius: 5px;
+        margin-bottom: 30px; }
+        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity .dashboard-activity-header {
+          font-weight: 500;
+          display: grid;
+          grid-template-columns: 2fr 1fr; }
+          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity .dashboard-activity-header .unit-of-measurement {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            width: 300px; }
+            .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity .dashboard-activity-header .unit-of-measurement li {
+              color: #74798c;
+              vertical-align: middle; }
+              .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity .dashboard-activity-header .unit-of-measurement li::before {
+                content: "•";
+                color: black;
+                padding-right: 15px;
+                font-size: 30px;
+                vertical-align: -5px;
+                line-height: 20px; }
+            .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity .dashboard-activity-header .unit-of-measurement .dashboard-activity-calories::before {
+              color: #ff0101; }
+        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity .dashboard-activity-section {
+          width: 100%;
+          height: 200px;
+          margin-top: 40px;
+          color: #9b9eac;
+          font-size: 14px; }
+          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity .dashboard-activity-section .custom-tooltip {
+            background-color: #e60000;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 11px; }
+      .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-line-chart {
+          position: relative;
+          width: 30%;
+          min-width: 250px;
+          height: 280px;
+          background-color: red;
+          border-radius: 5px;
+          color: rgba(255, 255, 255, 0.5); }
+          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-line-chart .dashboard-activity-second-background {
+            position: absolute;
+            right: 0;
+            width: 30%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1); }
+          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-line-chart .dashboard-line-chart-header {
             width: auto;
+            height: auto;
+            margin: 30px 35px;
+            margin-right: 75px;
+            margin-bottom: 10px; }
+            .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-line-chart .dashboard-line-chart-header h3 {
+              font-size: 17px;
+              font-weight: 500; }
+          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-line-chart .dashboard-line-chart-section {
+            width: 100%;
+            height: 180px;
+            padding: 5px 20px; }
+            .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-line-chart .dashboard-line-chart-section .custom-tooltip {
+              background-color: white;
+              color: black;
+              font-weight: 500;
+              padding: 5px;
+              text-align: center;
+              font-size: 11px; }
+              .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-line-chart .dashboard-line-chart-section .custom-tooltip p {
+                margin: 5px; }
+        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-radar {
+          width: 30%;
+          min-width: 250px;
+          height: 280px;
+          padding: 5px;
+          background-color: #282d30;
+          font-weight: 500;
+          border-radius: 5px;
+          font-size: 12px; }
+        .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-pie-chart {
+          width: 30%;
+          min-width: 250px;
+          height: 280px;
+          padding: 5px;
+          border-radius: 5px;
+          background-color: #fbfbfb;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center; }
+          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-pie-chart .dashboard-pie-chart-header {
+            height: fit-content;
+            align-self: flex-start;
+            margin: 25px 0 0 30px; }
+            .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-pie-chart .dashboard-pie-chart-header h3 {
+              font-size: 19px;
+              font-weight: 700;
+              margin: 0; }
+          .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-pie-chart .dashboard-pie-chart-section {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px; }
+            .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-pie-chart .dashboard-pie-chart-section .dashboard-pie-chart-circle {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: 176px;
+              border-radius: 100%;
+              height: 176px;
+              background-color: white;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center; }
+              .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-pie-chart .dashboard-pie-chart-section .dashboard-pie-chart-circle h4 {
+                margin: 0;
+                color: #282d30;
+                font-size: 25px; }
+              .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-items-charts-section .dashboard-pie-chart .dashboard-pie-chart-section .dashboard-pie-chart-circle p {
+                width: auto;
+                color: #74798c;
+                margin: 0;
+                padding: 0 30px;
+                font-size: 17px; }
+    .dashboard-container .dashboard-section .dashboard-nutritions-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 250px);
+      align-content: space-between;
+      margin-bottom: 30px; }
+      .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item {
+        width: 250px;
+        height: 120px;
+        background-color: #fbfbfb;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center; }
+        .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-icon {
+          height: 60px;
+          width: 60px;
+          margin: auto;
+          margin-left: 32px;
+          margin-right: 0;
+          border-radius: 6px;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+        .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-icon {
+          background-color: #ff000020; }
+        .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-icon-protein {
+          background-color: #4ab8ff20; }
+        .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-icon-carbohydrate {
+          background: #f9ce2320; }
+        .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-icon-lipid {
+          background-color: #fd518120; }
+        .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-text {
+          margin-left: 24px; }
+          .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-text p {
+            margin: 0; }
+          .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-text .nutrition-value {
+            font-weight: 700;
+            font-size: 20px;
+            color: #282d30; }
+          .dashboard-container .dashboard-section .dashboard-nutritions-section .nutrition-item .nutrition-text .nutrition-unit {
             color: #74798c;
-            margin: 0;
-            padding: 0 30px;
-            font-size: 17px; }
+            font-size: 15px; }
+
+@media screen and (max-width: 1400px) {
+  .dashboard-container .dashboard-section {
+    flex-wrap: wrap;
+    justify-content: center; }
+    .dashboard-container .dashboard-section .dashboard-section-chart .dashboard-activity {
+      align-self: center; }
+    .dashboard-container .dashboard-section .dashboard-nutritions-section {
+      display: grid;
+      width: 100%;
+      gap: 20px;
+      row-gap: 30px;
+      margin-right: 25px;
+      justify-content: space-between; } }

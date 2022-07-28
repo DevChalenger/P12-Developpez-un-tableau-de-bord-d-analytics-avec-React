@@ -1,9 +1,9 @@
 import axios from "axios";
 
-function UserServices() {
-  async function UserData() {
+function UserServices(id) {
+  async function UserData(id) {
     await axios
-      .get("http://localhost:8800/user/12/activity")
+      .get(`http://localhost:8800/user/${id}/activity`)
       .then((res) => {
         console.log(res);
       })
