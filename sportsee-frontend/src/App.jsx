@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/" element={<Home></Home>}></Route>
           <Route
             exact
-            path="/dashboard/:id"
+            path="/dashboard/:userId"
             element={<Dashboard></Dashboard>}
           ></Route>
         </Navigation>

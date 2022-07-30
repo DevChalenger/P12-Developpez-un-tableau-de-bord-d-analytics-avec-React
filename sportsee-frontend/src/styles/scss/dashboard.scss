@@ -1,5 +1,6 @@
 @import "./Color.scss";
 .dashboard-container {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
   margin-top: 101px;
@@ -9,7 +10,13 @@
   max-width: calc(100vw - 111px);
   min-height: calc(100vh - 101px);
   padding: 40px 50px;
-
+  .dashboard-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+  }
   .dashboard-header {
     margin-bottom: 50px;
     .welcome-title {
@@ -206,7 +213,7 @@
         }
       }
     }
-    //Dashboard-nutrition-components-section//
+    //Dashboard-nutrition-components-section
     .dashboard-nutritions-section {
       display: grid;
       grid-template-columns: repeat(auto-fit, 250px);

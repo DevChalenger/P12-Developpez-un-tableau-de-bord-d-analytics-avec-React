@@ -1,5 +1,6 @@
 @charset "UTF-8";
 .dashboard-container {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
   margin-top: 101px;
@@ -7,6 +8,12 @@
   max-width: calc(100vw - 111px);
   min-height: calc(100vh - 101px);
   padding: 40px 50px; }
+  .dashboard-container .dashboard-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s; }
   .dashboard-container .dashboard-header {
     margin-bottom: 50px; }
     .dashboard-container .dashboard-header .welcome-title {

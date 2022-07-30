@@ -5,7 +5,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: rgb(167, 167, 167);
 }
 a {
   color: inherit;

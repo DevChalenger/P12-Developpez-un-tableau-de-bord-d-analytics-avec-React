@@ -1,5 +1,4 @@
 function DashboardNutrition({ value, id, name, image, unit }) {
-  console.log(image);
   return (
     <article className={`nutrition-${id} nutrition-item`} id={id}>
       <div className={`nutrition-icon nutrition-icon-${id}`}>
