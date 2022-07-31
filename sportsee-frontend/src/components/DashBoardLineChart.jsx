@@ -1,8 +1,8 @@
 import { LineChart, Line, ResponsiveContainer, XAxis, Tooltip } from "recharts";
+import PropTypes from "prop-types";
 
 function DashBoardLineChart({ userAverageSession }) {
   function CustomTooltip(data) {
-    // console.log('CustomTooltip -> data', data)
     const { active, payload } = data;
 
     if (active && payload && payload.length) {
@@ -86,5 +86,9 @@ function DashBoardLineChart({ userAverageSession }) {
     </article>
   );
 }
+
+DashBoardLineChart.propTypes = {
+  userAverageSession: PropTypes.object.isRequired,
+};
 
 export default DashBoardLineChart;

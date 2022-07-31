@@ -1,11 +1,11 @@
 import axios from "axios";
 
-//Base url for the api
-const instance = axios.create({
-  method: "GET",
-  baseURL: "http://localhost:8800/",
-});
 function UserServices(userId) {
+  //Base url for the api
+  const instance = axios.create({
+    method: "GET",
+    baseURL: "http://localhost:8800/",
+  });
   async function userMainData() {
     try {
       const response = await instance.get(`user/${userId}`);

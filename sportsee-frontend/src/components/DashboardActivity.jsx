@@ -8,18 +8,29 @@ import {
   YAxis,
 } from "recharts";
 
+import PropTypes from "prop-types";
+// @fu
 function DashboardActivity({ userActivity }) {
-  /* function CustomDate(data) {
-  
-    const { active, payload } = data;
-
-    if (active && payload && payload.length) {
-      return (
-        ""
-      );
-    }
-    return null;
-  } */
+  function CustomDate(data) {
+    const monthShorten = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const formateDate = data.split("-");
+    const monthNumber = Number(formateDate[1]);
+    const returnedData = `${monthShorten[monthNumber - 1]} ${formateDate[2]}`;
+    return returnedData;
+  }
   function CustomTooltip(data) {
     // console.log('CustomTooltip -> data', data)
     const { active, payload } = data;
@@ -67,6 +78,7 @@ function DashboardActivity({ userActivity }) {
               tickLine={false}
               dy={15}
               stroke={"#9B9EAC"}
+              tickFormatter={CustomDate}
             ></XAxis>
 
             <YAxis
@@ -108,5 +120,9 @@ function DashboardActivity({ userActivity }) {
     </article>
   );
 }
+
+DashboardActivity.propTypes = {
+  userActivity: PropTypes.array.isRequired,
+};
 
 export default DashboardActivity;

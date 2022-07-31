@@ -4,8 +4,10 @@ import {
   RadialBar,
   PolarAngleAxis,
 } from "recharts";
+import PropTypes from "prop-types";
 
 function DashboardPieChart({ todayScore }) {
+  console.log(todayScore);
   const percentScore = [{ score: Math.round(todayScore * 100) }];
   return (
     <article className="dashboard-pie-chart">
@@ -47,5 +49,9 @@ function DashboardPieChart({ todayScore }) {
     </article>
   );
 }
+
+DashboardPieChart.propTypes = {
+  todayScore: PropTypes.number.isRequired,
+};
 
 export default DashboardPieChart;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function DashboardNutrition({ value, id, name, image, unit }) {
   return (
     <article className={`nutrition-${id} nutrition-item`} id={id}>
@@ -11,5 +13,13 @@ function DashboardNutrition({ value, id, name, image, unit }) {
     </article>
   );
 }
+
+DashboardNutrition.propTypes = {
+  value: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  unit: PropTypes.string.isRequired,
+};
 
 export default DashboardNutrition;

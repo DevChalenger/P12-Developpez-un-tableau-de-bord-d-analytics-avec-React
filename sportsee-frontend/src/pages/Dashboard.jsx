@@ -11,7 +11,7 @@ import DashboardPieChart from "../components/DashboardPieChart";
 import DashboardRadar from "../components/DashboardRadar";
 import Loader from "../components/Loader";
 
-//services
+//import service datas
 import UserMockedServices from "../services/UserMockedServices";
 import UserServices from "../services/UserServices";
 
@@ -25,10 +25,13 @@ import apple from "../assets/apple.svg";
 import cheeseburger from "../assets/cheeseburger.svg";
 
 function Dashboard() {
+  //get userId from current url
   const { userId } = useParams();
-  const [isMocked, setIsMocked] = useState();
 
+  //Conditional state
+  const [isMocked, setIsMocked] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
   //state data
   const [mainData, setMainData] = useState();
   const [activity, setActivity] = useState();
@@ -38,6 +41,7 @@ function Dashboard() {
   useEffect(() => {
     setIsMocked(false);
     async function apiCall() {
+      //Import data from api services
       const principalData = await UserServices(userId).userMainData();
       const activityData = await UserServices(userId).userActivity();
       const averageSessionData = await UserServices(
@@ -45,6 +49,7 @@ function Dashboard() {
       ).userAverageSession();
       const performanceData = await UserServices(userId).userPerformance();
 
+      //Import mocked services data
       const {
         userMainData,
         userActivity,
@@ -52,6 +57,7 @@ function Dashboard() {
         userPerformance,
       } = UserMockedServices(userId);
 
+      //Check if the data it's mocked
       if (isMocked) {
         setMainData(userMainData);
         setActivity(userActivity);
@@ -64,17 +70,17 @@ function Dashboard() {
         setPerformance(performanceData);
       }
 
-      /* setIsLoaded(true); */
+      setIsLoaded(true);
     }
     apiCall();
   }, [userId, isMocked, isLoaded]);
 
+  //Check if the data it's loaded
   if (isLoaded) {
     return (
       <main className="dashboard-container">
         <DashboardHeader
           firstName={mainData.userInfos.firstName}
-          lastName={mainData.userInfos.lastName}
         ></DashboardHeader>
         <section className="dashboard-section">
           <section className="dashboard-section-chart">

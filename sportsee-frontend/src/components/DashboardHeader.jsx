@@ -1,4 +1,6 @@
-function DashboardHeader({ firstName, lastName }) {
+import PropTypes from "prop-types";
+
+function DashboardHeader({ firstName }) {
   return (
     <header className="dashboard-header">
       <h1 className="welcome-title">
@@ -11,4 +13,7 @@ function DashboardHeader({ firstName, lastName }) {
   );
 }
 
+DashboardHeader.propTypes = {
+  firstName: PropTypes.string.isRequired,
+};
 export default DashboardHeader;

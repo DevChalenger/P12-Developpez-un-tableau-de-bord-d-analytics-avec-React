@@ -5,6 +5,7 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+import PropTypes from "prop-types";
 
 function DashboardRadar({ userPerformance }) {
   const performance = userPerformance.data;
@@ -54,5 +55,9 @@ function DashboardRadar({ userPerformance }) {
     </article>
   );
 }
+
+DashboardRadar.propTypes = {
+  userPerformance: PropTypes.object.isRequired,
+};
 
 export default DashboardRadar;
