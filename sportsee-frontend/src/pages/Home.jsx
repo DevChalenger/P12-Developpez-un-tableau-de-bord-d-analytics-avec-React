@@ -4,14 +4,14 @@ import { USER_MAIN_DATA } from "../__mocks__/data";
 
 /**
  * @function Home
- * @description Create the Home page
- * @returns Html elements of the Home page
+ * @description create the Home page
+ * @returns ctml elements of the Home page
  */
 
 function Home() {
   const navigate = useNavigate();
   /**
-   * @type {Array}
+   * @type {Object}
    */
   const userData = USER_MAIN_DATA;
   return (

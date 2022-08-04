@@ -1,4 +1,4 @@
-//import react
+//import react tool
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -42,12 +42,12 @@ function Dashboard() {
     setIsMocked(false);
     async function apiCall() {
       //Import data from api services
-      const principalData = await UserServices(userId).userMainData();
-      const activityData = await UserServices(userId).userActivity();
-      const averageSessionData = await UserServices(
-        userId
-      ).userAverageSession();
-      const performanceData = await UserServices(userId).userPerformance();
+      const apiService = UserServices(userId);
+
+      const principalData = await apiService.userMainData();
+      const activityData = await apiService.userActivity();
+      const averageSessionData = await apiService.userAverageSession();
+      const performanceData = await apiService.userPerformance();
 
       //Import mocked services data
       const {
@@ -89,9 +89,11 @@ function Dashboard() {
             ></DashboardActivity>
             <section className="dashboard-items-charts-section">
               <DashBoardLineChart
-                userAverageSession={averageSession}
+                userAverageSession={averageSession.sessions}
               ></DashBoardLineChart>
-              <DashboardRadar userPerformance={performance}></DashboardRadar>
+              <DashboardRadar
+                userPerformance={performance.data}
+              ></DashboardRadar>
               <DashboardPieChart
                 todayScore={mainData.todayScore || mainData.score}
               ></DashboardPieChart>

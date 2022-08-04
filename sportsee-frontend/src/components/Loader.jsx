@@ -1,5 +1,11 @@
 import { ReactComponent as Spinner } from "../assets/dumbbell-svgrepo-com.svg";
 
+/**
+ * @function Loader
+ * @description create the Loader of the dashboard
+ * @returns {HTMLElement} - element of the Loader
+ */
+
 function Loader() {
   return (
     <div className="dashboard-loader">

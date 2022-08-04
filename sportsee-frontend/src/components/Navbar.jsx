@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 
+/**
+ * @function HorizontalNavbar
+ * @description create the navbar of the header
+ * @returns {HTMLElement} - element of the horizontal navbar
+ */
+
 function HorizontalNavbar() {
   return (
     <nav>

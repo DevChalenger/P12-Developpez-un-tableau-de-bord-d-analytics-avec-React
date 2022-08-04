@@ -1,13 +1,21 @@
+//import recharts
 import {
   RadialBarChart,
   ResponsiveContainer,
   RadialBar,
   PolarAngleAxis,
 } from "recharts";
+
+//import proptypes
 import PropTypes from "prop-types";
 
+/**
+ * @function DashboardPieChart
+ * @description create dashboard score component
+ * @param {number} todayScore - percent of score
+ * @returns element of dashboard score component
+ */
 function DashboardPieChart({ todayScore }) {
-  console.log(todayScore);
   const percentScore = [{ score: Math.round(todayScore * 100) }];
   return (
     <article className="dashboard-pie-chart">

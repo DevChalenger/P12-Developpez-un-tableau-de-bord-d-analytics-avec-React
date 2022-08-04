@@ -1,3 +1,4 @@
+//import recharts
 import {
   Radar,
   RadarChart,
@@ -5,12 +6,41 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+
+//import proptype
 import PropTypes from "prop-types";
 
+/**
+ * @typedef UserPerformance
+ * @type {Object}
+ *  @property {number} value
+ *  @property {number} kind
+ */
+
+/**
+ * @function DashboardRadar
+ * @description create dashboard radar component
+ * @param {Array.<UserPerformance>} userPerformance performance objects
+ * @returns {HTMLElement} element of dashboard radar component
+ */
+
 function DashboardRadar({ userPerformance }) {
-  const performance = userPerformance.data;
+  /**
+   * @typedef Performance
+   * @type {Object}
+   *  @property {number} value
+   *  @property {number} kind
+   */
+
+  /**
+   * @function reversePerformance
+   * @description reverse performance data
+   * @param {Array.<Performance>} performance performance objects
+   * @returns {Array} inversed data from param
+   */
 
   function reversePerformance(performance) {
+    console.log(performance);
     let reverse = [];
 
     for (let index = performance.length - 1; index >= 0; index--) {
@@ -18,6 +48,14 @@ function DashboardRadar({ userPerformance }) {
     }
     return reverse;
   }
+
+  /**
+   * @function formatedKind
+   * @description format each kind
+   * @param {number} kind
+   * @returns {string} each name of kind
+   */
+
   function formatedKind(kind) {
     switch (kind) {
       case 1:
@@ -40,7 +78,10 @@ function DashboardRadar({ userPerformance }) {
   return (
     <article className="dashboard-radar">
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart outerRadius="75%" data={reversePerformance(performance)}>
+        <RadarChart
+          outerRadius="75%"
+          data={reversePerformance(userPerformance)}
+        >
           <PolarGrid radialLines={false} stroke="#FFFFFF" />
           <PolarAngleAxis
             dataKey={"kind"}
@@ -57,7 +98,7 @@ function DashboardRadar({ userPerformance }) {
 }
 
 DashboardRadar.propTypes = {
-  userPerformance: PropTypes.object.isRequired,
+  userPerformance: PropTypes.array.isRequired,
 };
 
 export default DashboardRadar;

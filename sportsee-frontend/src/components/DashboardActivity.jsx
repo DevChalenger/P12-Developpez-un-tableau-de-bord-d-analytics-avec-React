@@ -1,3 +1,4 @@
+//import recharts
 import {
   Tooltip,
   BarChart,
@@ -8,9 +9,31 @@ import {
   YAxis,
 } from "recharts";
 
+//import proptypes
 import PropTypes from "prop-types";
-// @fu
+
+/**
+ * @typedef UserActivity
+ * @type {Object}
+ *  @property {number} calories
+ *  @property {string} day
+ *  @property {number} kilogram
+ */
+
+/**
+ * @function DashboardActivity
+ * @description create dashboard activity component
+ * @param {Array.<UserActivity>} userActivity Activity objects
+ * @returns {HTMLElement} element of dashboard activity component
+ */
+
 function DashboardActivity({ userActivity }) {
+  /**
+   * @function CustomDate
+   * @description format date for the horizontal line "XAxis"
+   * @param {string} data
+   * @returns {string} formated date
+   */
   function CustomDate(data) {
     const monthShorten = [
       "Jan",
@@ -29,12 +52,19 @@ function DashboardActivity({ userActivity }) {
     const formateDate = data.split("-");
     const monthNumber = Number(formateDate[1]);
     const returnedData = `${monthShorten[monthNumber - 1]} ${formateDate[2]}`;
+
     return returnedData;
   }
+  /**
+   * @function CustomTooltip
+   * @description custom tooltip on hover
+   * @param {Object} data
+   *  @param {boolean} data.active
+   *  @param {Array} data.payload
+   * @return {HTMLElement} element of tooltip
+   */
   function CustomTooltip(data) {
-    // console.log('CustomTooltip -> data', data)
     const { active, payload } = data;
-
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">

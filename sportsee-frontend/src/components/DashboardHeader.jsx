@@ -1,4 +1,12 @@
+// import proptypes
 import PropTypes from "prop-types";
+
+/**
+ * @function DashboardHeader
+ * @description create dashboard header component
+ * @param {string} firstName - first name of the user
+ * @return {HTMLElement} element of dashboard header component
+ */
 
 function DashboardHeader({ firstName }) {
   return (

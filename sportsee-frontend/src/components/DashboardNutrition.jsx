@@ -1,5 +1,14 @@
 import PropTypes from "prop-types";
-
+/**
+ * @function DashboardNutrition
+ * @description create dashboard nutrition component
+ * @param {number} value
+ * @param {string} id
+ * @param {string} name
+ * @param {string} image
+ * @param {string} unit
+ * @returns {HTMLElement} element of dashboard nutrition component
+ */
 function DashboardNutrition({ value, id, name, image, unit }) {
   return (
     <article className={`nutrition-${id} nutrition-item`} id={id}>

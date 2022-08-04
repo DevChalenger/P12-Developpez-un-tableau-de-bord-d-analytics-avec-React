@@ -1,7 +1,32 @@
+//import recharts
 import { LineChart, Line, ResponsiveContainer, XAxis, Tooltip } from "recharts";
+
+//import proptypes
 import PropTypes from "prop-types";
 
+/**
+ * @typedef UserAverageSession
+ * @type {Object}
+ *  @property {number} day
+ *  @property {number} sessionLength
+ */
+
+/**
+ * @function DashBoardLineChart
+ * @description create dashboard line chart component
+ * @param {Array.<UserAverageSession>} userAverageSession Average session objects
+ * @returns {HTMLElement} element of dashboard line chart component
+ */
+
 function DashBoardLineChart({ userAverageSession }) {
+  /**
+   * @function CustomTooltip
+   * @description custom tooltip on hover
+   * @param {Object} data
+   *  @param {boolean} data.active
+   *  @param {Array} data.payload
+   * @return {HTMLElement} element of tooltip
+   */
   function CustomTooltip(data) {
     const { active, payload } = data;
 
@@ -14,7 +39,12 @@ function DashBoardLineChart({ userAverageSession }) {
     }
     return null;
   }
-
+  /**
+   * @function dayFormater
+   * @description format with the first letter of the day for the horizontal line "X-axis"
+   * @param {number} day
+   * @returns {string} each first letter of the day of the week
+   */
   function dayFormater(day) {
     switch (day) {
       case 1:
@@ -46,7 +76,7 @@ function DashBoardLineChart({ userAverageSession }) {
           <LineChart
             width={300}
             height={300}
-            data={userAverageSession.sessions}
+            data={userAverageSession}
             margin={{ left: 5, right: 5, top: 10, bottom: 5 }}
           >
             <Tooltip
@@ -88,7 +118,7 @@ function DashBoardLineChart({ userAverageSession }) {
 }
 
 DashBoardLineChart.propTypes = {
-  userAverageSession: PropTypes.object.isRequired,
+  userAverageSession: PropTypes.array.isRequired,
 };
 
 export default DashBoardLineChart;
