@@ -1,5 +1,10 @@
 import axios from "axios";
 
+/**
+ * @function UserServices
+ * @param {number} userId
+ * @returns {Object}
+ */
 function UserServices(userId) {
   //Base url for the api
   const instance = axios.create({
@@ -12,6 +17,8 @@ function UserServices(userId) {
       return response.data.data;
     } catch (error) {
       console.log(error);
+    } finally {
+      console.log("done");
     }
   }
 

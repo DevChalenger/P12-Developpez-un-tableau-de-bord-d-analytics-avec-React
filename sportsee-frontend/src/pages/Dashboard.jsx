@@ -24,12 +24,17 @@ import chicken from "../assets/chicken.svg";
 import apple from "../assets/apple.svg";
 import cheeseburger from "../assets/cheeseburger.svg";
 
+/**
+ * @function Dashboard
+ * @description create the Home page
+ * @returns {HTMLElement} html elements of the dashboard page
+ */
 function Dashboard() {
   //get userId from current url
   const { userId } = useParams();
 
   //Conditional state
-  const [isMocked, setIsMocked] = useState(false);
+  const [isMocked, setIsMocked] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
 
   //state data
@@ -40,15 +45,17 @@ function Dashboard() {
 
   useEffect(() => {
     setIsMocked(false);
-    async function apiCall() {
-      //Import data from api services
-      const apiService = UserServices(userId);
+    dataFactory(isMocked);
 
-      const principalData = await apiService.userMainData();
-      const activityData = await apiService.userActivity();
-      const averageSessionData = await apiService.userAverageSession();
-      const performanceData = await apiService.userPerformance();
+    function dataFactory(isMocked) {
+      if (isMocked) {
+        return mockedCall();
+      } else {
+        return apiCall();
+      }
+    }
 
+    function mockedCall() {
       //Import mocked services data
       const {
         userMainData,
@@ -57,24 +64,36 @@ function Dashboard() {
         userPerformance,
       } = UserMockedServices(userId);
 
-      //Check if the data it's mocked
-      if (isMocked) {
-        setMainData(userMainData);
-        setActivity(userActivity);
-        setAverageSession(userAverageSession);
-        setPerformance(userPerformance);
-      } else {
-        setMainData(principalData);
-        setActivity(activityData);
-        setAverageSession(averageSessionData);
-        setPerformance(performanceData);
-      }
+      setMainData(userMainData);
+      setActivity(userActivity);
+      setAverageSession(userAverageSession);
+      setPerformance(userPerformance);
 
-      setIsLoaded(true);
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 1000);
     }
-    apiCall();
-  }, [userId, isMocked, isLoaded]);
+    /**
+     * @function apiCall - get data from mocked service or api service
+     */
+    async function apiCall() {
+      //Import data from api services
+      const apiService = UserServices(userId);
+      const principalData = await apiService.userMainData();
+      const activityData = await apiService.userActivity();
+      const averageSessionData = await apiService.userAverageSession();
+      const performanceData = await apiService.userPerformance();
 
+      setMainData(principalData);
+      setActivity(activityData);
+      setAverageSession(averageSessionData);
+      setPerformance(performanceData);
+
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 1000);
+    }
+  }, [userId, isMocked, isLoaded]);
   //Check if the data it's loaded
   if (isLoaded) {
     return (

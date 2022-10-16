@@ -19,4 +19,12 @@
     flex-direction: column; }
     .home-container .user-redirection-container .user-redirection-button {
       align-self: center;
-      width: fit-content; }
+      width: fit-content;
+      background-color: #ff0101;
+      color: #fafafa;
+      border: 2px solid #fafafa;
+      border-radius: 0.5em;
+      padding: 0.5em 1em;
+      cursor: pointer; }
+      .home-container .user-redirection-container .user-redirection-button:active {
+        border: 2px solid black; }

@@ -1,3 +1,4 @@
+//import proptypes
 import PropTypes from "prop-types";
 /**
  * @function DashboardNutrition

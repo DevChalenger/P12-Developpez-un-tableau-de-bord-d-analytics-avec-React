@@ -40,7 +40,6 @@ function DashboardRadar({ userPerformance }) {
    */
 
   function reversePerformance(performance) {
-    console.log(performance);
     let reverse = [];
 
     for (let index = performance.length - 1; index >= 0; index--) {
