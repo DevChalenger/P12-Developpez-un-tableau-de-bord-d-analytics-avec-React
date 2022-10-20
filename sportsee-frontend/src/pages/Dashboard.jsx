@@ -45,10 +45,17 @@ function Dashboard() {
   const [performance, setPerformance] = useState();
 
   useEffect(() => {
-    setIsMocked(false);
-    dataFactory(isMocked);
+    const apiName = [
+      "USER_MAIN_DATA",
+      "USER_ACTIVITY",
+      "USER_AVERAGE_SESSIONS",
+      "USER_PERFORMANCE",
+    ];
 
-    function dataFactory(isMocked) {
+    setIsMocked(false);
+    dataMocked(isMocked);
+
+    function dataMocked(isMocked) {
       if (isMocked) {
         return mockedCall();
       } else {
@@ -65,10 +72,24 @@ function Dashboard() {
         userPerformance,
       } = UserMockedServices(userId);
 
-      setMainData(userMainData);
-      setActivity(userActivity);
-      setAverageSession(userAverageSession);
-      setPerformance(userPerformance);
+      const principalData = userMainData;
+      const activityData = userActivity;
+      const averageSessionData = userAverageSession;
+      const performanceData = userPerformance;
+
+      apiName.forEach(
+        (api) =>
+          new factoryData(
+            api,
+            {
+              setMainData,
+              setActivity,
+              setAverageSession,
+              setPerformance,
+            },
+            { principalData, activityData, averageSessionData, performanceData }
+          )
+      );
 
       setTimeout(() => {
         setIsLoaded(true);
@@ -84,13 +105,6 @@ function Dashboard() {
       const activityData = await apiService.userActivity();
       const averageSessionData = await apiService.userAverageSession();
       const performanceData = await apiService.userPerformance();
-
-      const apiName = [
-        "USER_MAIN_DATA",
-        "USER_ACTIVITY",
-        "USER_AVERAGE_SESSIONS",
-        "USER_PERFORMANCE",
-      ];
 
       apiName.forEach(
         (api) =>
