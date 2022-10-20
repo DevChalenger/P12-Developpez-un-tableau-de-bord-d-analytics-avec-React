@@ -17,8 +17,6 @@ function UserServices(userId) {
       return response.data.data;
     } catch (error) {
       console.log(error);
-    } finally {
-      console.log("done");
     }
   }
 

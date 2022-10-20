@@ -23,6 +23,7 @@ import energy from "../assets/energy.svg";
 import chicken from "../assets/chicken.svg";
 import apple from "../assets/apple.svg";
 import cheeseburger from "../assets/cheeseburger.svg";
+import factoryData from "../factory/factoryData";
 
 /**
  * @function Dashboard
@@ -84,10 +85,26 @@ function Dashboard() {
       const averageSessionData = await apiService.userAverageSession();
       const performanceData = await apiService.userPerformance();
 
-      setMainData(principalData);
-      setActivity(activityData);
-      setAverageSession(averageSessionData);
-      setPerformance(performanceData);
+      const apiName = [
+        "USER_MAIN_DATA",
+        "USER_ACTIVITY",
+        "USER_AVERAGE_SESSIONS",
+        "USER_PERFORMANCE",
+      ];
+
+      apiName.forEach(
+        (api) =>
+          new factoryData(
+            api,
+            {
+              setMainData,
+              setActivity,
+              setAverageSession,
+              setPerformance,
+            },
+            { principalData, activityData, averageSessionData, performanceData }
+          )
+      );
 
       setTimeout(() => {
         setIsLoaded(true);
