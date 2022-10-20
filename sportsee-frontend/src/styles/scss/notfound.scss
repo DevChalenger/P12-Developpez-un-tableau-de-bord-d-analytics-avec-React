@@ -1,0 +1,23 @@
+@import "./Color.scss";
+
+.notfound-container {
+  display: inline-flex;
+  margin-top: 101px;
+  color: $FirstColor;
+  margin-left: 111px;
+  text-align: center;
+  max-width: calc(100vw - 111px);
+  min-height: calc(100vh - 101px);
+  align-items: center;
+  justify-content: center;
+  .notfound-section {
+    .notfound-title {
+      margin: 0;
+    }
+    .notfound-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

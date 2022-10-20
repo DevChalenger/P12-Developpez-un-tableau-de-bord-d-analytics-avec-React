@@ -1,3 +1,8 @@
+/**
+ * @function UserServices
+ * @description update state for each factory
+ */
+
 class factoryData {
   constructor(
     api,
@@ -14,7 +19,7 @@ class factoryData {
       case "USER_PERFORMANCE":
         return setPerformance(performanceData);
       default:
-        return;
+        return console.log("error we have not found the data");
     }
   }
 }

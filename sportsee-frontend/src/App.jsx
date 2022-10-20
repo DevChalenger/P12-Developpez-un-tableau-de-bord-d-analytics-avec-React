@@ -4,24 +4,23 @@ import {
   Route,
   Routes as Navigation,
 } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import ExistData from "./utils/ExistData";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header></Header>
-        <Sidebar></Sidebar>
+        <Header />
+        <Sidebar />
         <Navigation>
-          <Route exact path="/" element={<Home></Home>}></Route>
-          <Route
-            exact
-            path="/dashboard/:userId"
-            element={<Dashboard></Dashboard>}
-          ></Route>
+          <Route exact path="/" element={<Home></Home>} />
+          <Route exact path="/dashboard/:userId" element={<ExistData />} />
+          <Route path="*" element={<NotFound />} />
         </Navigation>
       </Router>
     </div>
