@@ -6,18 +6,17 @@
 class factoryData {
   constructor(
     api,
-    { setMainData, setActivity, setAverageSession, setPerformance },
-    { principalData, activityData, averageSessionData, performanceData }
+    { setMainData, setActivity, setAverageSession, setPerformance }
   ) {
-    switch (api) {
+    switch (api.name) {
       case "USER_MAIN_DATA":
-        return setMainData(principalData);
+        return setMainData(api.value);
       case "USER_ACTIVITY":
-        return setActivity(activityData);
+        return setActivity(api.value);
       case "USER_AVERAGE_SESSIONS":
-        return setAverageSession(averageSessionData);
+        return setAverageSession(api.value);
       case "USER_PERFORMANCE":
-        return setPerformance(performanceData);
+        return setPerformance(api.value);
       default:
         return console.log("error we have not found the data");
     }

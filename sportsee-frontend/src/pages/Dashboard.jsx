@@ -45,13 +45,6 @@ function Dashboard() {
   const [performance, setPerformance] = useState();
 
   useEffect(() => {
-    const apiName = [
-      "USER_MAIN_DATA",
-      "USER_ACTIVITY",
-      "USER_AVERAGE_SESSIONS",
-      "USER_PERFORMANCE",
-    ];
-
     setIsMocked(false);
     dataMocked(isMocked);
 
@@ -76,6 +69,13 @@ function Dashboard() {
       const activityData = userActivity;
       const averageSessionData = userAverageSession;
       const performanceData = userPerformance;
+
+      const apiName = [
+        { name: "USER_MAIN_DATA", value: principalData },
+        { name: "USER_ACTIVITY", value: activityData },
+        { name: "USER_AVERAGE_SESSIONS", value: averageSessionData },
+        { name: "USER_PERFORMANCE", value: performanceData },
+      ];
 
       apiName.forEach(
         (api) =>
@@ -106,18 +106,21 @@ function Dashboard() {
       const averageSessionData = await apiService.userAverageSession();
       const performanceData = await apiService.userPerformance();
 
+      const apiName = [
+        { name: "USER_MAIN_DATA", value: principalData },
+        { name: "USER_ACTIVITY", value: activityData },
+        { name: "USER_AVERAGE_SESSIONS", value: averageSessionData },
+        { name: "USER_PERFORMANCE", value: performanceData },
+      ];
+
       apiName.forEach(
         (api) =>
-          new factoryData(
-            api,
-            {
-              setMainData,
-              setActivity,
-              setAverageSession,
-              setPerformance,
-            },
-            { principalData, activityData, averageSessionData, performanceData }
-          )
+          new factoryData(api, {
+            setMainData,
+            setActivity,
+            setAverageSession,
+            setPerformance,
+          })
       );
 
       setTimeout(() => {
