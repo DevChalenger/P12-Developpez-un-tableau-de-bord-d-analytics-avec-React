@@ -34,27 +34,7 @@ function DashboardActivity({ userActivity }) {
    * @param {string} data
    * @returns {string} formated date
    */
-  function CustomDate(data) {
-    const monthShorten = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    const formateDate = data.split("-");
-    const monthNumber = Number(formateDate[1]);
-    const returnedData = `${monthShorten[monthNumber - 1]} ${formateDate[2]}`;
 
-    return returnedData;
-  }
   /**
    * @function CustomTooltip
    * @description custom tooltip on hover
@@ -108,7 +88,6 @@ function DashboardActivity({ userActivity }) {
               tickLine={false}
               dy={15}
               stroke={"#9B9EAC"}
-              tickFormatter={CustomDate}
             ></XAxis>
 
             <YAxis

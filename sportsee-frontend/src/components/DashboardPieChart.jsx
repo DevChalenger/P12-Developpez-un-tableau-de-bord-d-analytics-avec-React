@@ -15,6 +15,7 @@ import PropTypes from "prop-types";
  * @param {number} todayScore - percent of score
  * @returns element of dashboard score component
  */
+
 function DashboardPieChart({ todayScore }) {
   const percentScore = [{ score: Math.round(todayScore * 100) }];
   return (

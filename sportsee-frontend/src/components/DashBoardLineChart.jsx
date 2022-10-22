@@ -45,26 +45,7 @@ function DashBoardLineChart({ userAverageSession }) {
    * @param {number} day
    * @returns {string} each first letter of the day of the week
    */
-  function dayFormater(day) {
-    switch (day) {
-      case 1:
-        return "L";
-      case 2:
-        return "M";
-      case 3:
-        return "M";
-      case 4:
-        return "J";
-      case 5:
-        return "V";
-      case 6:
-        return "S";
-      case 7:
-        return "D";
-      default:
-        return false;
-    }
-  }
+
   return (
     <article className="dashboard-line-chart">
       <div className="dashboard-activity-second-background"></div>
@@ -92,7 +73,6 @@ function DashBoardLineChart({ userAverageSession }) {
               opacity={0.55}
               domain={["dataMin -10", "dataMax +10"]}
               padding={{ left: 5, right: 5 }}
-              tickFormatter={dayFormater}
             ></XAxis>
 
             <Line

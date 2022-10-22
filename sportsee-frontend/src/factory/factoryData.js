@@ -1,3 +1,10 @@
+import {
+  mainData,
+  activityData,
+  averageSessionData,
+  performanceData,
+} from "./model/models";
+
 /**
  * @function UserServices
  * @description update state for each factory
@@ -10,15 +17,15 @@ class factoryData {
   ) {
     switch (api.name) {
       case "USER_MAIN_DATA":
-        return setMainData(api.value);
+        return new mainData(api.value, setMainData);
       case "USER_ACTIVITY":
-        return setActivity(api.value);
+        return new activityData(api.value, setActivity);
       case "USER_AVERAGE_SESSIONS":
-        return setAverageSession(api.value);
+        return new averageSessionData(api.value, setAverageSession);
       case "USER_PERFORMANCE":
-        return setPerformance(api.value);
+        return new performanceData(api.value, setPerformance);
       default:
-        return console.log("error we have not found the data");
+        return console.error("error we have not found the data");
     }
   }
 }

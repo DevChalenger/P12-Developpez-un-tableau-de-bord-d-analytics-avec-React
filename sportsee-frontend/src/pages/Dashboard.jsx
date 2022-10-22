@@ -132,24 +132,16 @@ function Dashboard() {
   if (isLoaded) {
     return (
       <main className="dashboard-container">
-        <DashboardHeader
-          firstName={mainData.userInfos.firstName}
-        ></DashboardHeader>
+        <DashboardHeader firstName={mainData.userInfos.firstName} />
         <section className="dashboard-section">
           <section className="dashboard-section-chart">
-            <DashboardActivity
-              userActivity={activity.sessions}
-            ></DashboardActivity>
+            <DashboardActivity userActivity={activity.sessions} />
             <section className="dashboard-items-charts-section">
               <DashBoardLineChart
                 userAverageSession={averageSession.sessions}
-              ></DashBoardLineChart>
-              <DashboardRadar
-                userPerformance={performance.data}
-              ></DashboardRadar>
-              <DashboardPieChart
-                todayScore={mainData.todayScore || mainData.score}
-              ></DashboardPieChart>
+              />
+              <DashboardRadar userPerformance={performance.data} />
+              <DashboardPieChart todayScore={mainData.todayScore} />
             </section>
           </section>
           <section className="dashboard-nutritions-section">
@@ -159,28 +151,28 @@ function Dashboard() {
               value={mainData.keyData.calorieCount}
               id="calories"
               image={energy}
-            ></DashboardNutrition>
+            />
             <DashboardNutrition
               unit={"g"}
               name={"Proteines"}
               value={mainData.keyData.proteinCount}
               id="protein"
               image={chicken}
-            ></DashboardNutrition>
+            />
             <DashboardNutrition
               unit={"g"}
               name={"Glucides"}
               value={mainData.keyData.carbohydrateCount}
               id="carbohydrate"
               image={apple}
-            ></DashboardNutrition>
+            />
             <DashboardNutrition
               unit={"g"}
               name={"Lipides"}
               value={mainData.keyData.lipidCount}
               id="lipid"
               image={cheeseburger}
-            ></DashboardNutrition>
+            />
           </section>
         </section>
       </main>
@@ -188,7 +180,7 @@ function Dashboard() {
   } else {
     return (
       <main className="dashboard-container">
-        <Loader></Loader>
+        <Loader />
       </main>
     );
   }

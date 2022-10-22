@@ -55,25 +55,6 @@ function DashboardRadar({ userPerformance }) {
    * @returns {string} each name of kind
    */
 
-  function formatedKind(kind) {
-    switch (kind) {
-      case 1:
-        return "Cardio";
-      case 2:
-        return "Energie";
-      case 3:
-        return "Endurance";
-      case 4:
-        return "Force";
-      case 5:
-        return "Vitesse";
-      case 6:
-        return "Intensité";
-      default:
-        return false;
-    }
-  }
-
   return (
     <article className="dashboard-radar">
       <ResponsiveContainer width="100%" height="100%">
@@ -82,12 +63,7 @@ function DashboardRadar({ userPerformance }) {
           data={reversePerformance(userPerformance)}
         >
           <PolarGrid radialLines={false} stroke="#FFFFFF" />
-          <PolarAngleAxis
-            dataKey={"kind"}
-            tickLine={false}
-            stroke="#FFFFFF"
-            tickFormatter={formatedKind}
-          />
+          <PolarAngleAxis dataKey={"kind"} tickLine={false} stroke="#FFFFFF" />
 
           <Radar name="Mike" dataKey="value" fill="#FF0101" fillOpacity={0.7} />
         </RadarChart>
